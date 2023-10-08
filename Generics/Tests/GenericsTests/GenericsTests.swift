@@ -1,12 +1,28 @@
 import XCTest
-@testable import Generics
+import Generics
+
+// todo conform to Generic protocol
+@GenericM
+struct Person: Hashable, Generic {
+    var age: Int
+    var name: String
+    var deleted: Bool
+}
+
+let p = Person(age: 27, name: "test", deleted: false)
 
 final class GenericsTests: XCTestCase {
     func testExample() throws {
-        // XCTest Documentation
-        // https://developer.apple.com/documentation/xctest
+        XCTAssertEqual(Person.from(p.rep), p)
+    }
 
-        // Defining Test Cases and Test Methods
-        // https://developer.apple.com/documentation/xctest/defining_test_cases_and_test_methods
+    func testPretty() throws {
+        XCTAssertEqual(p.rep.pretty, """
+        Person {
+            age: 27
+            name: test
+            deleted: false
+        }
+        """)
     }
 }

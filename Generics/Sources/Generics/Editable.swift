@@ -40,9 +40,9 @@ extension Tail: Editable {
     }
 }
 
-extension Label: Editable where A: Editable {
-    public static func edit(label: String?, _ binding: Binding<Label<A>>) -> some View {
-        A.edit(label: binding.wrappedValue.name, binding.value)
+extension Field: Editable where Value: Editable {
+    public static func edit(label: String?, _ binding: Binding<Field<Value>>) -> some View {
+        Value.edit(label: binding.wrappedValue.name, binding.value)
     }
 }
 

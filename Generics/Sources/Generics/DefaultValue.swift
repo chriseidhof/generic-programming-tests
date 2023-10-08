@@ -14,7 +14,7 @@ extension String: EmptyValue {
     static var emptyValue: String { "" }
 }
 
-extension Label: EmptyValue where A: EmptyValue {
+extension Field: EmptyValue where Value: EmptyValue {
     static var emptyValue: Self { .init(name: "", value: .emptyValue) }
 }
 

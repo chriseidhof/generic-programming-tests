@@ -35,22 +35,19 @@ public struct Prod<Head: Representation, Tail: Representation>: Representation {
     }
 }
 
-//public enum Sum<Left, Right> {
-//    case left(label: String, Left)
-//    case right(label: String, Right)
-//}
-//
+public enum Either<Left, Right> {
+    case left(Left)
+    case right(Right)
+}
+
+extension Either: Representation where Left: Representation, Right: Representation {
+    public typealias Structure = Either<Left.Structure, Right.Structure> // todo?
+}
+
 public struct Tail: Representation {
     public typealias Structure = ()
 
     public init() { }
-}
-
-
-
-struct Person {
-    var age: Int
-    var name: String
 }
 
 public protocol Generic {
@@ -60,15 +57,3 @@ public protocol Generic {
     var to: Repr.Structure { get }
 }
 
-extension Person: Generic {
-    static let representation = Struct(name: "Person", children: Prod(head: Field<Int>(name: "age"), tail: Prod(head: Field<String>(name: "name"), tail: Tail())))
-
-    init(_ structure: Prod<Field<Int>, Prod<Field<String>, Tail>>.Structure) {
-        age = structure.0
-        name = structure.1.0
-    }
-
-    var to: Prod<Field<Int>, Prod<Field<String>, Tail>>.Structure {
-        (age, (name, ()))
-    }
-}

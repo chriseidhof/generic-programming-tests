@@ -2,25 +2,34 @@
 
 import Foundation
 
+@attached(member, names: named(Rep), named(rep), named(from))
+//@attached(extension, conformances: Generic)
+public macro GenericM() = #externalMacro(module: "GenericsMacros", type: "GenericMacro")
+
+
 public protocol Generic {
     associatedtype Rep
-    init(_ rep: Rep)
+    static func from(_ rep: Rep) -> Self
     var rep: Rep { get }
     // todo: we could separate the Rep from the value to get maximum performance and be able to reflect without having a value. the rep could possibly be used to get/set the value?
 }
 
 extension Generic {
+    init(_ rep: Rep) {
+        self = .from(rep)
+    }
+    
     // Helper for bindings
     var representation: Rep {
         get { rep }
-        set { self = .init(newValue) }
+        set { self = Self.from(newValue) }
     }
 }
 
-public struct Label<A> {
+public struct Field<Value> {
     public var name: String
-    public var value: A
-    public init(name: String, value: A) {
+    public var value: Value
+    public init(name: String, value: Value) {
         self.name = name
         self.value = value
     }

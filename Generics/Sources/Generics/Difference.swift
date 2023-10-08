@@ -5,8 +5,8 @@ public protocol Difference {
     func difference(from other: Self) -> [String]
 }
 
-extension Label: Difference where A: Equatable {
-    public func difference(from other: Label<A>) -> [String] {
+extension Field: Difference where Value: Equatable {
+    public func difference(from other: Field<Value>) -> [String] {
         if value == other.value { return [] }
         return ["\(name): \(value) != \(other.value)"]
     }

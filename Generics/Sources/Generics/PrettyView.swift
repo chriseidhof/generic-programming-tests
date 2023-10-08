@@ -26,7 +26,7 @@ extension Prod: PrettyView where Head: PrettyView, Tail: PrettyView {
     }
 }
 
-extension Label: PrettyView where A: PrettyView {
+extension Field: PrettyView where Value: PrettyView {
     public var view: some View {
         LabeledContent(content: {
             value.view

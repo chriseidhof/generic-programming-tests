@@ -23,12 +23,17 @@ extension String: Pretty {
     }
 }
 
-extension Label: Pretty where A: Pretty {
+extension Bool: Pretty {
+    public func lines() -> [String] {
+        [self ? "true" : "false"]
+    }
+}
+
+extension Field: Pretty where Value: Pretty {
     public func lines() -> [String] {
         ["\(name): \(value.pretty)"]
     }
 }
-
 
 extension Prod: Pretty where Head: Pretty, Tail: Pretty {
     public func lines() -> [String] {
