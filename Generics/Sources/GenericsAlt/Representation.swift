@@ -2,6 +2,7 @@
 
 import Foundation
 
+
 public protocol Representation {
     associatedtype Structure
 }
@@ -53,7 +54,13 @@ public struct Tail: Representation {
 public protocol Generic {
     associatedtype Repr: Representation
     static var representation: Repr { get }
-    init(_ structure: Repr.Structure)
     var to: Repr.Structure { get }
+    static func from(_ rep: Repr.Structure) -> Self
+}
+
+extension Generic {
+    init(_ structure: Repr.Structure) {
+        self = .from(structure)
+    }
 }
 

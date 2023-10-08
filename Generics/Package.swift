@@ -32,7 +32,9 @@ let package = Package(
                 "GenericsMacros"
             ]),
         .target(
-            name: "GenericsAlt"),
+            name: "GenericsAlt", dependencies: [
+                "GenericsMacros"
+            ]),
         .testTarget(name: "GenericsTests", dependencies: ["Generics"]),
         .testTarget(name: "GenericsAltTests", dependencies: ["GenericsAlt"]),
     ]

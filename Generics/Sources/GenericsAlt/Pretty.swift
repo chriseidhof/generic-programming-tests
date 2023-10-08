@@ -26,6 +26,13 @@ extension String: Pretty {
     }
 }
 
+extension Bool: Pretty {
+    public func lines() -> [String] {
+        [self ? "true" : "false"]
+    }
+}
+
+
 extension Field: GPretty where Child: Pretty {
     public func lines(_ value: Child) -> [String] {
         ["\(name): \(value.pretty)"]

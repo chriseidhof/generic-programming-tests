@@ -5,5 +5,6 @@ import SwiftSyntaxMacros
 @main struct Plugin: CompilerPlugin {
     let providingMacros: [Macro.Type] = [
         GenericMacro.self,
+        GenericAltMacro.self,
     ]
 }

@@ -1,25 +1,14 @@
 import XCTest
 @testable import GenericsAlt
 
-struct Person: Hashable {
+@GenericAltM
+struct Person: Hashable, Generic {
     var age: Int
     var name: String
+    var deleted: Bool
 }
 
-extension Person: Generic {
-    static let representation = Struct(name: "Person", children: Prod(head: Field<Int>(name: "age"), tail: Prod(head: Field<String>(name: "name"), tail: Tail())))
-
-    init(_ structure: Prod<Field<Int>, Prod<Field<String>, Tail>>.Structure) {
-        age = structure.0
-        name = structure.1.0
-    }
-
-    var to: Prod<Field<Int>, Prod<Field<String>, Tail>>.Structure {
-        (age, (name, ()))
-    }
-}
-
-let p = Person(age: 27, name: "test")
+let p = Person(age: 27, name: "test", deleted: false)
 
 final class GenericsTests: XCTestCase {
     func testExample() throws {
@@ -31,11 +20,12 @@ final class GenericsTests: XCTestCase {
         Person {
             age: 27
             name: test
+            deleted: false
         }
         """)
     }
 
     func testEmpty() throws {
-        XCTAssertEqual(Person.empty, .init(age: 0, name: ""))
+        XCTAssertEqual(Person.empty, .init(age: 0, name: "", deleted: false))
     }
 }

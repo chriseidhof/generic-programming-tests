@@ -10,6 +10,10 @@ extension Int: Empty {
     static let empty: Int = 0
 }
 
+extension Bool: Empty {
+    static let empty = false
+}
+
 protocol GEmpty: Representation {
     static var empty: Structure { get }
 }
