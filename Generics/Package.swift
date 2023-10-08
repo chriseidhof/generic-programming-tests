@@ -13,10 +13,15 @@ let package = Package(
         .library(
             name: "Generics",
             targets: ["Generics"]),
+        .library(
+            name: "GenericsAlt",
+            targets: ["GenericsAlt"]),
     ],
     targets: [
         .target(
             name: "Generics"),
+        .target(
+            name: "GenericsAlt"),
         .testTarget(
             name: "GenericsTests",
             dependencies: ["Generics"]),
