@@ -1,0 +1,9 @@
+- write macro
+- json encoder
+- binary encoder
+  - also encode the schema as a "versioning" thing
+- pass along an environment while rendering a view? or modify the environment
+- generate a table view for a type?
+- rules to modify views
+- parser/pretty printer
+- extend `edit` to allow switching between enum cases. this requires a "default" or empty value as well for each case
