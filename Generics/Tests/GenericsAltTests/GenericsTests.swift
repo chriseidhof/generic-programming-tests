@@ -28,4 +28,11 @@ final class GenericsTests: XCTestCase {
     func testEmpty() throws {
         XCTAssertEqual(Person.empty, .init(age: 0, name: "", deleted: false))
     }
+
+    func testBinary() throws {
+        var data = p.data
+        XCTAssertNotEqual(data.count, 0)
+        XCTAssertEqual(Person(data: &data), p)
+        XCTAssertEqual(data.count, 0)
+    }
 }
