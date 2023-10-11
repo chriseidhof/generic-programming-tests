@@ -16,4 +16,5 @@ struct Update: Hashable, Generic, Identifiable {
     var date: Date
 }
 
-extension Update: Pretty, Binary, PrettyView { }
+extension Update: Pretty, Binary, PrettyView, Editor {
+}

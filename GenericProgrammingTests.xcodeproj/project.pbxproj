@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		837A90EE2AD1169B00B81D9E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837A90ED2AD1169B00B81D9E /* Person.swift */; };
+		837A90EE2AD1169B00B81D9E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837A90ED2AD1169B00B81D9E /* Model.swift */; };
 		83D677FE2AD1083600DAD768 /* GenericProgrammingTestsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D677FD2AD1083600DAD768 /* GenericProgrammingTestsApp.swift */; };
 		83D678002AD1083600DAD768 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D677FF2AD1083600DAD768 /* ContentView.swift */; };
 		83D678022AD1083700DAD768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83D678012AD1083700DAD768 /* Assets.xcassets */; };
@@ -36,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		837A90ED2AD1169B00B81D9E /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		837A90ED2AD1169B00B81D9E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		83D677FA2AD1083600DAD768 /* GenericProgrammingTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenericProgrammingTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83D677FD2AD1083600DAD768 /* GenericProgrammingTestsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericProgrammingTestsApp.swift; sourceTree = "<group>"; };
 		83D677FF2AD1083600DAD768 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 			children = (
 				83D677FD2AD1083600DAD768 /* GenericProgrammingTestsApp.swift */,
 				83D677FF2AD1083600DAD768 /* ContentView.swift */,
-				837A90ED2AD1169B00B81D9E /* Person.swift */,
+				837A90ED2AD1169B00B81D9E /* Model.swift */,
 				83D678012AD1083700DAD768 /* Assets.xcassets */,
 				83D678032AD1083700DAD768 /* GenericProgrammingTests.entitlements */,
 				83D678042AD1083700DAD768 /* Preview Content */,
@@ -279,7 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				837A90EE2AD1169B00B81D9E /* Person.swift in Sources */,
+				837A90EE2AD1169B00B81D9E /* Model.swift in Sources */,
 				83D678002AD1083600DAD768 /* ContentView.swift in Sources */,
 				83D677FE2AD1083600DAD768 /* GenericProgrammingTestsApp.swift in Sources */,
 			);

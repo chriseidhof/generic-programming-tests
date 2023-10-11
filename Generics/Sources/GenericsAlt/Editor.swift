@@ -30,6 +30,26 @@ extension Bool: Editor {
     }
 }
 
+extension Date: Editor {
+    public static func edit(title: LocalizedStringKey, _ binding: Binding<Self>) -> some View {
+        DatePicker(title, selection: binding)
+    }
+}
+
+extension UUID: Editor {
+    public static func edit(title: LocalizedStringKey, _ binding: Binding<Self>) -> some View {
+        TextField(title, text: .constant(binding.wrappedValue.uuidString))
+    }
+}
+
+extension Array: Editor where Element: Editor & Identifiable {
+    public static func edit(title: LocalizedStringKey, _ binding: Binding<Array<Element>>) -> some View {
+        ForEach(binding) { $element in
+            Element.edit(title: "", $element)
+        }
+    }
+}
+
 
 extension Field: GEditor where Child: Editor {
     public func edit(_ binding: Binding<Child>) -> some View {
@@ -59,6 +79,9 @@ extension Tail: GEditor {
 extension Generic where Repr: GEditor {
     static public func edit(_ value: Binding<Self>) -> some View {
         representation.edit(value.structure)
+    }
+    static public func edit(title: LocalizedStringKey, _ binding: Binding<Self>) -> some View {
+        self.edit(binding) // todo don't ignore the title
     }
 }
 

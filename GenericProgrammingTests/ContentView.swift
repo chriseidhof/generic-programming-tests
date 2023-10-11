@@ -23,9 +23,9 @@ struct ContentView: View {
                 subject.view
             }
             .listStyle(.automatic)
-//            Form {
-//                Book.edit($subject)
-//            }
+            Form {
+                Book.edit($subject)
+            }
 //            .onChange(of: subject) {
 //                print(difference(initialSubject, subject))
 //            }
