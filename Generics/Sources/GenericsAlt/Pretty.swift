@@ -20,6 +20,22 @@ extension Int: Pretty {
     }
 }
 
+extension Array: Pretty where Element: Pretty {
+    public func lines() -> [String] {
+        ["["] +
+        self.map { el in
+            el.lines().map { "    " + $0 }
+        }.joined(separator: [","]) +
+        ["]"]
+    }
+}
+
+extension UUID: Pretty {
+    public func lines() -> [String] {
+        [uuidString]
+    }
+}
+
 extension String: Pretty {
     public func lines() -> [String] {
         ["\(self)"]
@@ -29,6 +45,12 @@ extension String: Pretty {
 extension Bool: Pretty {
     public func lines() -> [String] {
         [self ? "true" : "false"]
+    }
+}
+
+extension Date: Pretty {
+    public func lines() -> [String] {
+        [formatted()]
     }
 }
 
@@ -60,7 +82,11 @@ extension Tail: GPretty {
 }
 
 extension Generic where Repr: GPretty {
-    var pretty: String {
-        Self.representation.lines(to).joined(separator: "\n")
+    public func lines() -> [String] {
+        Self.representation.lines(to)
+    }
+
+    public var pretty: String {
+       lines().joined(separator: "\n")
     }
 }

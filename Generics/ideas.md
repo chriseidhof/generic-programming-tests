@@ -1,9 +1,11 @@
-- write macro
 - json encoder
-- binary encoder
-  - also encode the schema as a "versioning" thing
 - pass along an environment while rendering a view? or modify the environment
+  - for SwiftUI, we can use the default environment
 - generate a table view for a type?
 - rules to modify views
+  - [ ] e.g. in a form, we might want to switch to a slider instead of a text field
 - parser/pretty printer
 - extend `edit` to allow switching between enum cases. this requires a "default" or empty value as well for each case
+- [x] write macro
+- [x] binary encoder
+  - also encode the schema as a "versioning" thing

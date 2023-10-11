@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		837A90EC2AD1165B00B81D9E /* Generics in Frameworks */ = {isa = PBXBuildFile; productRef = 837A90EB2AD1165B00B81D9E /* Generics */; };
 		837A90EE2AD1169B00B81D9E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837A90ED2AD1169B00B81D9E /* Person.swift */; };
 		83D677FE2AD1083600DAD768 /* GenericProgrammingTestsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D677FD2AD1083600DAD768 /* GenericProgrammingTestsApp.swift */; };
 		83D678002AD1083600DAD768 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D677FF2AD1083600DAD768 /* ContentView.swift */; };
@@ -16,6 +15,7 @@
 		83D678102AD1083700DAD768 /* GenericProgrammingTestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D6780F2AD1083700DAD768 /* GenericProgrammingTestsTests.swift */; };
 		83D6781A2AD1083700DAD768 /* GenericProgrammingTestsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D678192AD1083700DAD768 /* GenericProgrammingTestsUITests.swift */; };
 		83D6781C2AD1083700DAD768 /* GenericProgrammingTestsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D6781B2AD1083700DAD768 /* GenericProgrammingTestsUITestsLaunchTests.swift */; };
+		83E714172AD6798400D1C1CE /* GenericsAlt in Frameworks */ = {isa = PBXBuildFile; productRef = 83E714162AD6798400D1C1CE /* GenericsAlt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				837A90EC2AD1165B00B81D9E /* Generics in Frameworks */,
+				83E714172AD6798400D1C1CE /* GenericsAlt in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,10 +156,11 @@
 			buildRules = (
 			);
 			dependencies = (
+				837B42CD2AD6858300DC0E35 /* PBXTargetDependency */,
 			);
 			name = GenericProgrammingTests;
 			packageProductDependencies = (
-				837A90EB2AD1165B00B81D9E /* Generics */,
+				83E714162AD6798400D1C1CE /* GenericsAlt */,
 			);
 			productName = GenericProgrammingTests;
 			productReference = 83D677FA2AD1083600DAD768 /* GenericProgrammingTests.app */;
@@ -304,6 +305,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		837B42CD2AD6858300DC0E35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 837B42CC2AD6858300DC0E35 /* GenericsAlt */;
+		};
 		83D6780D2AD1083700DAD768 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 83D677F92AD1083600DAD768 /* GenericProgrammingTests */;
@@ -646,9 +651,15 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		837A90EB2AD1165B00B81D9E /* Generics */ = {
+		837B42CC2AD6858300DC0E35 /* GenericsAlt */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Generics;
+			package = 837A90EA2AD1165B00B81D9E /* XCLocalSwiftPackageReference "Generics" */;
+			productName = GenericsAlt;
+		};
+		83E714162AD6798400D1C1CE /* GenericsAlt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 837A90EA2AD1165B00B81D9E /* XCLocalSwiftPackageReference "Generics" */;
+			productName = GenericsAlt;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

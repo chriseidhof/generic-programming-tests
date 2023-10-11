@@ -10,6 +10,10 @@ public protocol Representation {
 public struct Struct<Children: Representation>: Representation {
     public var name: String
     public var children: Children
+    public init(name: String, children: Children) {
+        self.name = name
+        self.children = children
+    }
 
     public typealias Structure = Children.Structure
 }
@@ -59,7 +63,7 @@ public protocol Generic {
 }
 
 extension Generic {
-    init(_ structure: Repr.Structure) {
+    public init(_ structure: Repr.Structure) {
         self = .from(structure)
     }
 }
