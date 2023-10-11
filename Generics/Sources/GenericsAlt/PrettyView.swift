@@ -4,6 +4,7 @@ import SwiftUI
 public protocol PrettyView {
     associatedtype V: View
     var view: V { get }
+    var primitive: Bool { get }
 }
 
 public protocol GPrettyView: Representation {
@@ -13,36 +14,48 @@ public protocol GPrettyView: Representation {
 }
 
 extension Date: PrettyView {
+    public var primitive: Bool { true }
+
     public var view: some View {
         Text(self, style: .date)
     }
 }
 
 extension Int: PrettyView {
+    public var primitive: Bool { true }
+
     public var view: some View {
         Text("\(self)")
     }
 }
 
 extension String: PrettyView {
+    public var primitive: Bool { true }
+
     public var view: some View {
         Text(self)
     }
 }
 
 extension Bool: PrettyView {
+    public var primitive: Bool { true }
+
     public var view: some View {
         Text(self ? "true" : "false")
     }
 }
 
 extension UUID: PrettyView {
+    public var primitive: Bool { true }
+
     public var view: some View {
         Text("\(self)")
     }
 }
 
 extension Array: PrettyView where Element: PrettyView & Identifiable {
+    public var primitive: Bool { false }
+
     public var view: some View {
         VStack {
             ForEach(self) { el in
@@ -54,8 +67,14 @@ extension Array: PrettyView where Element: PrettyView & Identifiable {
 
 extension Field: GPrettyView where Child: PrettyView {
     public func view(_ value: Child) -> some View {
-        LabeledContent(name) {
-            value.view
+        if value.primitive {
+            LabeledContent(name) {
+                value.view
+            }
+        } else {
+            Section(name) {
+                value.view
+            }
         }
     }
 }
@@ -84,5 +103,9 @@ extension Tail: GPrettyView {
 extension Generic where Repr: GPrettyView {
     public var view: some View {
         Self.representation.view(to)
+    }
+
+    public var primitive: Bool {
+        false
     }
 }

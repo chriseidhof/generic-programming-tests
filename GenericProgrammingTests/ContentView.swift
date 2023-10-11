@@ -16,19 +16,19 @@ extension Data {
 struct ContentView: View {
     @State var subject: Book = initialSubject
     var body: some View {
-        VStack {
+        VSplitView {
             TextEditor(text: .constant(subject.pretty))
             TextEditor(text: .constant(subject.data.hexDescription))
-            subject.view
+            List {
+                subject.view
+            }
+            .listStyle(.automatic)
 //            Form {
 //                Book.edit($subject)
 //            }
 //            .onChange(of: subject) {
 //                print(difference(initialSubject, subject))
 //            }
-        }
-        .padding()
-        .onAppear {
         }
     }
 }
